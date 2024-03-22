@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: .5rem;
+            border: none;
+            border-radius: .25rem;
+        }
+        button:hover {
+            background-color: #f66;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem vindo, <span class="user-nome"></span>!</h1>
+
+    <button id="deslogar-btn">Deslogar</button>
+    <script>
+        
+        if (localStorage.getItem('logado') !== "true") {
+            window.location.assign('/WebLogin')
+        }
+
+        document.querySelector('.user-nome').textContent = localStorage.getItem('nome');
+
+        document.querySelector('#deslogar-btn').onclick = () => {
+            localStorage.removeItem('nome');
+            localStorage.removeItem('logado');
+            localStorage.removeItem('user');
+            window.location.assign('/WebLogin');
+        }
+    </script>
+</body>
+</html>

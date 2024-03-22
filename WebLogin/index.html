@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-form">
+        <h3>Log In</h3>
+        <input placeholder="Email" type="email" name="input-email" id="input-email">
+        <input placeholder="Senha" type="password" name="input-password" id="input-password">
+        <button id="login-btn">Log In</button>
+    </div>
+
+    <script>
+
+        if (localStorage.getItem('logado') === "true")
+        {
+            window.location.assign('user.html');
+        }
+
+        const USERS = [
+            {name: 'longhi', email: 'dev@longhi.me', senha: 'minhasenha2000'},
+            {name: 'nicolas', email: 'nicolas@gmail.com', senha: 'nicolas123'}
+        ]
+        
+        document.querySelector('#login-btn').onclick = () => {
+            var inputEmail = document.querySelector('#input-email').value;
+            var inputPassword = document.querySelector('#input-password').value;
+
+            USERS.forEach(user => {
+                if (user.email === inputEmail && user.senha === inputPassword)
+                {
+                    localStorage.setItem('nome', user.name);
+                    localStorage.setItem('logado', "true");
+                    localStorage.setItem('user', JSON.stringify(user));
+                }
+            });
+
+            if (localStorage.getItem('logado') != "true")
+            {
+                alert('Email ou Senha incorreto!')
+            } else {
+                window.location.assign('user.html');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+2 - Web: Crie uma tela interativa com o usuário que permita o usuário inserir uma imagem e dar zoom nela.
+
+3 -  Web: Crie uma interface utilizando HTML, CSS E Javascript para um sistema de login. O login correto pode ser armazenado em uma variável.
+
+4 -  No C#, Crie uma classe BinaryCalculator que possua métodos e conversão de binário para decimal e decimal para binário.
